@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::webhooks('receiving-url-for-app-1', 'webhook-sending-app-1');
+Route::webhooks('receiving-url-for-app-2', 'webhook-sending-app-2');

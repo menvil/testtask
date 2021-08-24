@@ -7,13 +7,12 @@ use \Spatie\WebhookClient\ProcessWebhookJob;
 //The class extends "ProcessWebhookJob" class as that is the class
 //that will handle the job of processing our webhook before we have
 //access to it.
-class ProcessWebhookStripe extends ProcessWebhookJob
+class ProcessWebhookFake extends ProcessWebhookJob
 {
     public function handle(){
         $data = json_decode($this->webhookCall, true);
-
         //Do something with the event
-        (new StripeProvider($data['payload']))->perfomAction();
+        (new FakeProvider($data['payload']))->perfomAction();
         logger($data['payload']);
         http_response_code(200); //Acknowledge you received the response
     }
